@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Madonna Shilpa - Web Designer and Developer specializing in modern web experiences and innovative digital solutions">
+    <meta name="keywords" content="web developer, ui designer, creative developer, portfolio, modern web design">
+    <meta name="author" content="Madonna Shilpa">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Madonna Shilpa - Web Designer and Developer">
+    <meta property="og:description" content="Innovative digital experiences that push boundaries">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/assets/images/og-image.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Madonna Shilpa - Creative Developer">
+    <meta name="twitter:description" content="Innovative digital experiences that push boundaries">
+
+    <title>Madonna Shilpa - Creative Developer | Modern Web Design & Development</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-text">LOADING</div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="neural-network"></div>
+        <div class="floating-particles" id="particles"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span>Madonna Shilpa</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active"><span>Home</span></a></li>
+                <li><a href="#about" class="nav-link"><span>About</span></a></li>
+                <li><a href="#skills" class="nav-link"><span>Skills</span></a></li>
+                <li><a href="#projects" class="nav-link"><span>Projects</span></a></li>
+                <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- 3D Floating Elements -->
+        <div class="floating-3d"></div>
+        <div class="floating-3d"></div>
+        <div class="floating-3d"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-rocket"></i>
+                Available for freelance work
+            </div>
+
+            <h1 class="hero-title fade-in">
+                <span class="text-gradient">Web Designer &</span><br>
+                <span class="text-outline">Developer</span>
+            </h1>
+
+            <p class="hero-subtitle fade-in">
+                I design & build <span class="typing-text" id="typingText">digital experiences</span>
+            </p>
+
+            <p class="hero-description fade-in">
+                Passionate about creating innovative digital solutions that inspire, engage, and drive results.
+                Let's bring your vision to life with cutting-edge technology and creative design.
+            </p>
+
+            <div class="hero-buttons fade-in">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>View My Work</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Let's Connect</span>
+                </a>
+            </div>
+
+            <div class="hero-stats fade-in">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2+</span>
+                    <span class="stat-label">Years</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfaction</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate about creating innovative digital solutions that inspire and engage users worldwide
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text slide-left">
+                    <div class="text-block">
+                        <h3>Hi, I'm Madonna Shilpa</h3>
+                        <p>
+                            A <span class="highlight-text">Web Designer and Developer</span> with a passion for crafting
+                            exceptional digital experiences.
+                            I bridge the gap between design and technology, creating solutions that are both beautiful
+                            and functional.
+                        </p>
+                    </div>
+
+                    <div class="text-block">
+                        <p>
+                            With expertise in modern web technologies and a keen eye for design, I specialize in
+                            building
+                            <span class="highlight-text">responsive websites</span>, <span
+                                class="highlight-text">interactive applications</span>,
+                            and <span class="highlight-text">immersive user interfaces</span> that push the boundaries
+                            of what's possible on the web.
+                        </p>
+                    </div>
+
+                    <div class="text-block">
+                        <p>
+                            When I'm not coding, you'll find me exploring the latest design trends, experimenting with
+                            new technologies,
+                            or contributing to open-source projects. I believe in continuous learning and staying ahead
+                            of the curve
+                            in this ever-evolving digital landscape.
+                        </p>
+                    </div>
+
+                    <div class="about-cta">
+                        <a href="assets/files/resume.pdf" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-visual slide-right">
+                    <div class="profile-card glass">
+                        <div class="profile-image">
+                            <!-- Replace with your actual photo -->
+                            <img src="assets/images/profile.jpg" alt="Madonna Shilpa" loading="lazy">
+                            <div class="profile-overlay">
+                                <div class="profile-status">
+                                    <span class="status-dot"></span>
+                                    Available for work
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-info">
+                            <h4>Madonna Shilpa</h4>
+                            <p>Web Designer and Developer</p>
+                            <div class="profile-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Calgary, Alberta
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-grid">
+                        <div class="experience-item glass">
+                            <div class="exp-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="exp-content">
+                                <h5>Frontend Development</h5>
+                                <p>2+ Years Experience</p>
+                            </div>
+                        </div>
+
+                        <div class="experience-item glass">
+                            <div class="exp-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="exp-content">
+                                <h5>UI/UX Design</h5>
+                                <p>2+ Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">
+                    Technologies and tools I use to bring creative visions to life
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-card glass fade-in">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">Frontend Development</h3>
+                    </div>
+                    <p class="skill-description">
+                        Building responsive and interactive user interfaces with modern JavaScript frameworks and
+                        libraries.
+                    </p>
+                    <div class="skill-technologies">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass fade-in">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="skill-title">UI/UX Design</h3>
+                    </div>
+                    <p class="skill-description">
+                        Creating intuitive and visually appealing designs that enhance user experience and engagement.
+                    </p>
+                    <div class="skill-technologies">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Adobe XD</span>
+                        <span class="tech-tag">Canva</span>
+                        <span class="tech-tag">Prototyping</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-width="95%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass fade-in">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="skill-title">Graphic Design</h3>
+                    </div>
+                    <p class="skill-description">
+                        Designing impactful visuals and branding assets that communicate ideas clearly and enhance overall user engagement.
+                    </p>
+                    <div class="skill-technologies">
+                        <span class="tech-tag">Photoshop</span>
+                        <span class="tech-tag">Illustrator</span>
+                        <span class="tech-tag">InDesign</span>
+                        <span class="tech-tag">After Effects</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" data-width="95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    A showcase of my latest work and creative solutions that push boundaries
+                </p>
+            </div>
+
+            <div class="projects-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Website</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card glass fade-in" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/projects/website.jpg" alt="Commercial Website" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://madonna1094.github.io/cprg-218-lab-5/" class="project-link" aria-label="View Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Madonna1094/cprg-218-lab-5.git" class="project-link" aria-label="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">Web Application</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Luxelocks - Business Website</h3>
+                        <p class="project-description">
+                            A responsive web app built with modern front-end technologies, showcasing interactive UI components.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card glass fade-in" data-category="mobile">
+                    <div class="project-image">
+                        <img src="assets/images/projects/mobileapp.jpg" alt="Mobile" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://madonnashilpauxdesign.my.canva.site/" class="project-link" aria-label="View Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">Mobile</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">SkillHive - Mobile App</h3>
+                        <p class="project-description">
+                            A mobile-friendly app prototype designed with Canva, emphasizing usability and visual appeal.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card glass fade-in" data-category="design">
+                    <div class="project-image">
+                        <img src="assets/images/projects/graphicdesign.jpg" alt="Creative Portfolio" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://madonnashilpauxdesign.my.canva.site/white-green-simple-and-professional-business-pitch-deck-presentation" class="project-link" aria-label="View Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">Design</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Sweet Freeze - Design</h3>
+                        <p class="project-description">
+                            A professional business pitch deck crafted to captivate the audience.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="projects-cta fade-in">
+                <p>Interested in seeing more of my work?</p>
+                <a href="https://github.com/Madonna1094/" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Let's Create Together</h2>
+                <p class="section-subtitle">
+                    Ready to bring your next project to life? Let's discuss your vision and make it reality
+                </p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info slide-left">
+                    <div class="contact-intro">
+                        <h3>Get In Touch</h3>
+                        <p>
+                            I'm always excited to work on new projects and collaborate with creative minds.
+                            Whether you have a specific project in mind or just want to explore possibilities,
+                            I'd love to hear from you.
+                        </p>
+                    </div>
+
+                    <div class="contact-methods">
+                        <div class="contact-method glass">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:madonna.sundaradhas@gmail.com">madonna.sundaradhas@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method glass">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Phone</h4>
+                                <a href="tel:+14378551261">+1 (437) 855-1261</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method glass">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Location</h4>
+                                <span>Calgary, AB, Canada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" class="social-link" target="_blank"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/madonna-shilpa-a2a618138/" class="social-link" target="_blank"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <!-- <a href="https://twitter.com/yourusername" class="social-link" target="_blank"
+                            aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://dribbble.com/yourusername" class="social-link" target="_blank"
+                            aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                            <span>Dribbble</span>
+                        </a>
+                        <a href="https://behance.net/yourusername" class="social-link" target="_blank"
+                            aria-label="Behance">
+                            <i class="fab fa-behance"></i>
+                            <span>Behance</span>
+                        </a> -->
+                    </div>
+                </div>
+
+                <form class="contact-form glass slide-right" id="contactForm" novalidate>
+                    <div class="form-header">
+                        <h3>Send me a message</h3>
+                        <p>Let's discuss your project and bring your ideas to life</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="form-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" class="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="ui-ux-design">UI/UX Design</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Project Budget (Optional)</label>
+                        <select id="budget" class="subject" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-plus">$25,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required
+                            placeholder="Tell me about your project, goals, and any specific requirements you have in mind..."></textarea>
+                        <span class="form-error"></span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkbox-custom"></span>
+                            Subscribe to my newsletter for web development tips and updates
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </span>
+                        <span class="btn-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Sending...
+                        </span>
+                    </button>
+
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span>Madonna Shilpa</span>
+                    </div>
+                    <p class="footer-description">
+                        Creative Developer passionate about building innovative digital experiences
+                        that inspire and engage users worldwide.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com/Madonna1094/" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/madonna-shilpa-a2a618138/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://dribbble.com/yourusername" target="_blank" aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                        </a> -->
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">UI/UX Design</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">Consultation</a></li>
+                            <li><a href="#">Maintenance</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:madonna.sundaradhas@gmail.com">madonna.sundaradhas@gmail.com</a></li>
+                            <li><a href="tel:+14378551261">+1 (437) 855-1261</a></li>
+                            <li><span>Calgary, AB, Canada</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Madonna Shilpa. All rights reserved.</p>
+                </div>
+                <div class="footer-credits">
+                    <p>Crafted with <span class="heart">❤️</span> and lots of <span class="coffee">☕</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
