@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KFC Redesign | Project Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f7fc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #2343d3;
+      --accent-dark: #1731a6;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(35, 67, 211, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .project-page {
+      padding: 56px 0 90px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      transition: color 0.25s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .project-header {
+      max-width: 840px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .project-summary {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(35, 67, 211, 0.3);
+      color: var(--accent);
+    }
+
+    .hero-image {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #dde7ff, #f8fbff);
+      box-shadow: var(--shadow);
+      margin-bottom: 34px;
+      aspect-ratio: 16 / 8.5;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .content-card,
+    .details-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .content-card {
+      padding: 30px;
+    }
+
+    .details-card {
+      padding: 26px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag-list span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e8edf5;
+      background: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .details-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .detail-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .detail-value {
+      font-size: 0.95rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .detail-value a {
+      color: var(--accent);
+      word-break: break-word;
+    }
+
+    .detail-value a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
+      .project-page {
+        padding-top: 28px;
+      }
+
+      .content-card,
+      .details-card {
+        padding: 20px;
+      }
+
+      .project-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="project-page">
+    <div class="container">
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <header class="project-header">
+        <span class="eyebrow">UI/UX Case Study</span>
+        <h1 class="project-title">KFC Redesign</h1>
+        <p class="project-summary">
+          A UX redesign project focused on improving the KFC checkout experience for takeout orders by making the
+          payment flow more flexible, convenient, and user-friendly.
+        </p>
+      </header>
+
+      <div class="project-actions">
+        <a href="https://www.behance.net/gallery/246440833/KFC-Ordering-Experience-Redesign" class="btn btn-primary" target="_blank">View Case Study</a>
+        <a href="projects.html" class="btn btn-secondary">Explore More Projects</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="assets/kfc redesign.jpg" alt="KFC redesign project hero image">
+      </div>
+
+      <section class="content-grid">
+        <div class="content-card">
+          <div class="section">
+            <h2>Overview</h2>
+            <p>
+              This project was created as a UX audit and redesign of the KFC takeout checkout experience. The goal was
+              to identify a key usability issue in the payment process and redesign the flow to better support user
+              convenience, faster decision-making, and a smoother ordering experience.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Challenge</h2>
+            <p>
+              The main problem identified in the existing checkout experience was the lack of payment flexibility. Users
+              were limited to paying only by credit card, which created friction for customers who preferred
+              alternatives such as Apple Pay or paying at the store. This reduced convenience and made the checkout
+              process feel less accommodating.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Solution</h2>
+            <p>
+              I redesigned the payment step to include additional payment options that better matched user expectations
+              and real-world ordering habits. The updated concept introduced more flexibility into the checkout flow
+              while keeping the interface simple, clear, and aligned with a fast-food mobile ordering experience.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Design Focus</h2>
+            <p>
+              The redesign focused on usability, accessibility, and reducing friction in the payment journey. The
+              concept aimed to create a smoother path from cart to confirmation by improving clarity, choice, and
+              overall convenience within the takeout ordering process.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Tools</h2>
+            <p>
+              The project combined UX analysis and interface design methods to create a more effective and user-centered
+              ordering experience.
+            </p>
+            <div class="tag-list">
+              <span>Figma</span>
+              <span>UX Audit</span>
+              <span>UI Design</span>
+              <span>User Flow</span>
+              <span>Checkout Redesign</span>
+              <span>Mobile Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="details-card">
+          <h3>Project Details</h3>
+
+          <div class="detail-item">
+            <span class="detail-label">Category</span>
+            <div class="detail-value">UI/UX Case Study</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Project Type</span>
+            <div class="detail-value">UX Audit &amp; Redesign</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Role</span>
+            <div class="detail-value">UI/UX Designer</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Year</span>
+            <div class="detail-value">2025</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Focus</span>
+            <div class="detail-value">Checkout Experience, Payment Options, Usability, Mobile Ordering</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Tools</span>
+            <div class="detail-value">Figma, UX Audit, Wireframing, Prototyping</div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>

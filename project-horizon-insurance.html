@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Insurance | Project Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f7fc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #2343d3;
+      --accent-dark: #1731a6;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(35, 67, 211, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .project-page {
+      padding: 56px 0 90px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      transition: color 0.25s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .project-header {
+      max-width: 840px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .project-summary {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(35, 67, 211, 0.3);
+      color: var(--accent);
+    }
+
+    .hero-image {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #dfe8ff 0%, #eef4ff 45%, #f8fbff 100%);
+      box-shadow: var(--shadow);
+      margin-bottom: 34px;
+      aspect-ratio: 16 / 8.5;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 28px;
+    }
+
+    .hero-preview {
+      width: 100%;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #0f172a 0%, #1731a6 52%, #2343d3 100%);
+      color: #fff;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: end;
+      min-height: 100%;
+    }
+
+    .hero-copy small {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy p {
+      font-size: 0.96rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 460px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-self: center;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat span {
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .content-card,
+    .details-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .content-card {
+      padding: 30px;
+    }
+
+    .details-card {
+      padding: 26px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section p,
+    .section li {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .section ul {
+      margin: 14px 0 0 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag-list span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e8edf5;
+      background: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .details-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .detail-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .detail-value {
+      font-size: 0.95rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .detail-value a {
+      color: var(--accent);
+      word-break: break-word;
+    }
+
+    .detail-value a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
+      .project-page {
+        padding-top: 28px;
+      }
+
+      .content-card,
+      .details-card {
+        padding: 20px;
+      }
+
+      .project-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-image {
+        padding: 16px;
+      }
+
+      .hero-preview {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="project-page">
+    <div class="container">
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <header class="project-header">
+        <span class="eyebrow">Web Design &amp; Development</span>
+        <h1 class="project-title">Horizon Insurance</h1>
+        <p class="project-summary">
+          A responsive insurance advisor website designed and developed to present coverage options clearly,
+          build trust with visitors, and support lead generation through a premium calculator and quote request form.
+        </p>
+      </header>
+
+      <div class="project-actions">
+        <a href="https://insurance-website-horizon.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Site</a>
+        <a href="projects.html" class="btn btn-secondary">Explore More Projects</a>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-preview" aria-label="Horizon Insurance project visual preview">
+          <div class="hero-copy">
+            <small>Insurance Advisor Website</small>
+            <h2>Confidence starts here.</h2>
+            <p>
+              A conversion-focused website experience built to explain coverage options, support premium estimation,
+              and help users request a quote with confidence.
+            </p>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>4</strong>
+              <span>Core insurance services presented clearly</span>
+            </div>
+            <div class="hero-stat">
+              <strong>1</strong>
+              <span>Interactive premium calculator experience</span>
+            </div>
+            <div class="hero-stat">
+              <strong>FAQ</strong>
+              <span>Supportive content to reduce user confusion</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Lead Form</strong>
+              <span>Quote request workflow for inquiries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="content-grid">
+        <div class="content-card">
+          <div class="section">
+            <h2>Overview</h2>
+            <p>
+              Horizon Insurance is a professional website created for an independent insurance advisor in Canada.
+              The goal of the project was to build a modern and trustworthy online presence where users can explore
+              coverage options, understand services quickly, and take action through a simple quote request process.
+              The website combines informative content with conversion-focused design to support both user trust and
+              business goals.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Problem</h2>
+            <p>
+              Insurance websites often feel complicated, text-heavy, and difficult for users who are simply trying to
+              understand their options. This project needed to present multiple insurance categories in a clear way,
+              reduce confusion around premium estimation, and make it easier for visitors to contact an advisor without
+              feeling overwhelmed by technical language.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Solution</h2>
+            <p>
+              I designed and developed a clean multi-section website with strong visual hierarchy, supportive content,
+              and clear calls to action. The experience guides users through services, a premium calculator, trust
+              indicators, FAQs, and a contact form. This structure helps visitors learn about coverage, interact with
+              the calculator for a quick estimate, and confidently request a quote.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Key Features</h2>
+            <ul>
+              <li>Hero section with clear messaging and strong call-to-action buttons</li>
+              <li>Service cards for Life, Health, Critical Illness, and Disability Insurance</li>
+              <li>Interactive insurance premium calculator for quick monthly estimate guidance</li>
+              <li>Trust-building content including testimonials, business metrics, and advisor positioning</li>
+              <li>FAQ section to answer common user questions before inquiry</li>
+              <li>Lead generation contact form for quote requests and follow-up</li>
+              <li>Responsive layout optimized for desktop and mobile browsing</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Design Approach</h2>
+            <p>
+              The design direction focused on clarity, professionalism, and accessibility. I used generous spacing,
+              readable typography, strong section separation, and a consistent blue visual language to communicate trust
+              and stability. The layout was planned to make important information easy to scan while keeping the overall
+              experience polished and user-friendly.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Development</h2>
+            <p>
+              This project was developed as a responsive front-end website with structured sections, reusable styling,
+              and interactive functionality for the premium calculator and contact workflow. The build supports a simple
+              and practical user journey, making it suitable as both a portfolio project and a real-world business
+              website concept.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Outcome</h2>
+            <p>
+              The final website presents insurance information in a more approachable way and gives users multiple entry
+              points to engage with the business. By combining service education, quick estimation, and a clear inquiry
+              path, the project demonstrates how thoughtful web design can improve trust, communication, and conversion
+              for service-based businesses.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Technologies</h2>
+            <p>
+              The project used front-end tools and responsive design practices to create a smooth and modern web experience.
+            </p>
+            <div class="tag-list">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive Design</span>
+              <span>UI Design</span>
+              <span>Netlify</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="details-card">
+          <h3>Project Details</h3>
+
+          <div class="detail-item">
+            <span class="detail-label">Category</span>
+            <div class="detail-value">Web Design &amp; Development</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Type</span>
+            <div class="detail-value">Insurance Advisor Website</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Role</span>
+            <div class="detail-value">UI Designer &amp; Front-End Developer</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Year</span>
+            <div class="detail-value">2025</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Platform</span>
+            <div class="detail-value">Responsive Website</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Focus</span>
+            <div class="detail-value">Lead Generation, Calculator UI, Responsive Layout, Service Presentation</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Live Site</span>
+            <div class="detail-value">
+              <a href="https://insurance-website-horizon.netlify.app/" target="_blank" rel="noopener noreferrer">https://insurance-website-horizon.netlify.app/</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>

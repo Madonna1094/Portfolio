@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wild Rose Foundry | Project Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f7fc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #2343d3;
+      --accent-dark: #1731a6;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --container: 1180px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(35, 67, 211, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .project-page {
+      padding: 56px 0 90px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      transition: color 0.25s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .project-header {
+      max-width: 860px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .project-summary {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(35, 67, 211, 0.3);
+      color: var(--accent);
+    }
+
+    .hero-image {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #dfe8ff 0%, #eef4ff 45%, #f8fbff 100%);
+      box-shadow: var(--shadow);
+      margin-bottom: 34px;
+      aspect-ratio: 16 / 8.5;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 28px;
+    }
+
+    .hero-preview {
+      width: 100%;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #111827 0%, #1731a6 55%, #2343d3 100%);
+      color: #fff;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: end;
+      min-height: 100%;
+    }
+
+    .hero-copy small {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy p {
+      font-size: 0.96rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 470px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      align-self: center;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat span {
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .content-card,
+    .details-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .content-card {
+      padding: 30px;
+    }
+
+    .details-card {
+      padding: 26px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section p,
+    .section li {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .section ul {
+      margin: 14px 0 0 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag-list span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e8edf5;
+      background: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .details-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .detail-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .detail-value {
+      font-size: 0.95rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .detail-value a {
+      color: var(--accent);
+      word-break: break-word;
+    }
+
+    .detail-value a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
+      .project-page {
+        padding-top: 28px;
+      }
+
+      .content-card,
+      .details-card {
+        padding: 20px;
+      }
+
+      .project-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-image {
+        padding: 16px;
+      }
+
+      .hero-preview {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="project-page">
+    <div class="container">
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <header class="project-header">
+        <span class="eyebrow">Web Design &amp; Development</span>
+        <h1 class="project-title">Wild Rose Foundry</h1>
+        <p class="project-summary">
+          A handcrafted marketplace website designed to showcase Alberta makers, organize a growing product catalog,
+          and create a smooth shopping experience through product discovery, vendor storytelling, and cart-based browsing.
+        </p>
+      </header>
+
+      <div class="project-actions">
+        <a href="https://dev.interactivedesign.ca/~msundaradhas/cprg310/final/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Site</a>
+        <a href="projects.html" class="btn btn-secondary">Explore More Projects</a>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-preview" aria-label="Wild Rose Foundry project visual preview">
+          <div class="hero-copy">
+            <small>Marketplace Website</small>
+            <h2>Handcrafted goods from Alberta makers.</h2>
+            <p>
+              A multi-page shopping experience built to feature local vendors, product categories,
+              detailed product pages, and a clean path from browsing to cart.
+            </p>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>45</strong>
+              <span>Products shown in the catalog</span>
+            </div>
+            <div class="hero-stat">
+              <strong>7</strong>
+              <span>Independent vendors featured</span>
+            </div>
+            <div class="hero-stat">
+              <strong>8</strong>
+              <span>Product categories for navigation</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Cart</strong>
+              <span>Shopping flow with add-to-cart actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="content-grid">
+        <div class="content-card">
+          <div class="section">
+            <h2>Overview</h2>
+            <p>
+              Wild Rose Foundry is an e-commerce style marketplace website created to highlight handcrafted products
+              from Alberta-based makers. The platform brings together multiple vendors, organized product categories,
+              featured product sections, and detailed product pages into one cohesive digital storefront. The project
+              focuses on creating a warm, curated shopping experience while helping users browse products, learn about
+              each maker, and add items to their cart with ease.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Challenge</h2>
+            <p>
+              The main challenge was to design a marketplace experience that could handle a growing inventory and
+              multiple independent vendors without feeling cluttered. The website needed to balance product discovery,
+              brand storytelling, and usability. It also had to make navigation simple across categories, vendors,
+              product listings, and individual product pages while maintaining a handcrafted and premium visual feel.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Solution</h2>
+            <p>
+              I created a structured multi-page website that organizes the shopping journey clearly from the homepage.
+              Users can browse featured products, view all products, explore vendor profiles, open individual product
+              pages, and use add-to-cart actions throughout the site. The content hierarchy and layout were designed to
+              make the platform feel approachable, organized, and visually consistent across different sections.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Key Features</h2>
+            <ul>
+              <li>Homepage hero section introducing the brand and marketplace concept</li>
+              <li>Featured product area to highlight selected handcrafted items</li>
+              <li>Category and vendor navigation for faster product discovery</li>
+              <li>All products page with a larger catalog and pagination support</li>
+              <li>Dedicated vendor pages with booth information and brand storytelling</li>
+              <li>Product detail pages with pricing, categories, variants, and vendor details</li>
+              <li>Cart functionality supported by add-to-cart actions across the site</li>
+              <li>Consistent layout that keeps the experience clear and easy to scan</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>Design Approach</h2>
+            <p>
+              The visual direction focused on warmth, craftsmanship, and readability. I used a product-first layout,
+              strong spacing, clean typography, and simple navigation patterns so users could move through the catalog
+              naturally. Vendor descriptions and curated product presentation help the site feel more personal while
+              still functioning like a practical online storefront.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Project Structure</h2>
+            <p>
+              The website includes multiple connected pages that support different parts of the shopping journey,
+              including a homepage, an all-products catalog, a vendors page, vendor-specific product views, and
+              individual product detail pages. This structure supports a more realistic marketplace experience and
+              demonstrates how content can be scaled across different sections without losing consistency.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Outcome</h2>
+            <p>
+              The final result is a polished marketplace concept that presents local makers and handcrafted goods in a
+              clear, engaging, and organized way. The project shows my ability to design and develop a multi-page
+              website with category-based browsing, vendor-focused storytelling, and commerce-oriented interactions in a
+              cohesive user experience.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Technologies</h2>
+            <p>
+              The project combines front-end design and development with a multi-page product browsing structure to
+              create a functional shopping experience.
+            </p>
+            <div class="tag-list">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>Responsive Design</span>
+              <span>E-commerce UI</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="details-card">
+          <h3>Project Details</h3>
+
+          <div class="detail-item">
+            <span class="detail-label">Category</span>
+            <div class="detail-value">Web Design &amp; Development</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Type</span>
+            <div class="detail-value">Marketplace / E-commerce Website</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Role</span>
+            <div class="detail-value">UI Designer &amp; Web Developer</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Year</span>
+            <div class="detail-value">2025</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Focus</span>
+            <div class="detail-value">Product Discovery, Vendor Pages, Cart Flow, Information Hierarchy</div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Live Site</span>
+            <div class="detail-value">
+              <a href="https://dev.interactivedesign.ca/~msundaradhas/cprg310/final/" target="_blank" rel="noopener noreferrer">https://dev.interactivedesign.ca/~msundaradhas/cprg310/final/</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>

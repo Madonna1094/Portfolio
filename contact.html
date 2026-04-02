@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Madonna Shilpa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">Madonna Shilpa</a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero contact-hero">
+      <div class="container narrow">
+        <p class="section-label">Contact</p>
+        <h1>Let’s Connect</h1>
+        <p class="contact-hero-text">
+          Have a project in mind or want to collaborate? Feel free to reach out through email,
+          LinkedIn, Behance, or the form below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-card contact-info">
+          <h2>Contact Details</h2>
+          <p>
+            I’m open to freelance projects, collaborations, and design opportunities.
+          </p>
+
+          <div class="contact-list">
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:yourname@email.com">madonnashilpa1094@gmail.com</a>
+            </p>
+
+            <p>
+              <strong>Behance:</strong>
+              <a href="https://www.behance.net/" target="_blank" rel="noopener">
+                https://www.behance.net/madonnashilpa
+              </a>
+            </p>
+
+            <p>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                https://www.linkedin.com/in/madonna-shilpa-a2a618138/
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-form contact-form-custom"
+          onsubmit="event.preventDefault(); alert('Connect this form to Formspree, Netlify Forms, or your backend later.');">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Your email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Your message" required></textarea>
+
+          <button class="btn btn-primary contact-btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 Madonna Shilpa. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

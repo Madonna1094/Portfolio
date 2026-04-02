@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects | Madonna Shilpa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- main shared css -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --projects-bg: #f5f7fc;
+      --projects-card: #ffffff;
+      --projects-text: #0f172a;
+      --projects-muted: #64748b;
+      --projects-line: #e2e8f0;
+      --projects-pill: #f8fafc;
+      --projects-accent: #2343d3;
+      --projects-accent-dark: #1731a6;
+      --projects-shadow-hover: 0 24px 50px rgba(35, 67, 211, 0.14);
+      --projects-radius-lg: 28px;
+      --projects-radius-md: 20px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(35, 67, 211, 0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(99, 102, 241, 0.08), transparent 24%),
+        var(--projects-bg);
+      color: var(--projects-text);
+    }
+
+    /* keeps same alignment as index header, but hides the name on projects page */
+    .project-header-spacer {
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .projects-shell {
+      padding-bottom: 4.5rem;
+    }
+
+    .projects-hero {
+      padding: 3.8rem 0 1.4rem;
+      text-align: center;
+    }
+
+    .projects-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .projects-hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--projects-muted);
+      font-size: 1rem;
+    }
+
+    .filters-wrap {
+      padding: 1.2rem 0 2rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--projects-line);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--projects-muted);
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--projects-accent);
+      border-color: rgba(35, 67, 211, 0.32);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: var(--projects-accent);
+      color: #fff;
+      border-color: var(--projects-accent);
+      box-shadow: 0 12px 24px rgba(35, 67, 211, 0.22);
+    }
+
+    .projects-section {
+      padding-bottom: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .project-card-link.hide {
+      display: none;
+    }
+
+    .project-card-link {
+      display: block;
+      border-radius: var(--projects-radius-md);
+    }
+
+    .project-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--projects-line);
+      border-radius: var(--projects-radius-md);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .project-card-link:hover .project-card {
+      transform: translateY(-8px);
+      border-color: rgba(35, 67, 211, 0.18);
+      box-shadow: var(--projects-shadow-hover);
+    }
+
+    .project-image {
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e0e7ff, #f8fafc 60%, #dbeafe);
+      border-bottom: 1px solid var(--projects-line);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease, opacity 0.25s ease;
+    }
+
+    .project-card-link:hover .project-image img {
+      transform: scale(1.04);
+    }
+
+    .project-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: 22px;
+      color: #1e3a8a;
+      background:
+        radial-gradient(circle at top right, rgba(35, 67, 211, 0.16), transparent 30%),
+        linear-gradient(135deg, #eef2ff, #f8fbff 55%, #e2e8f0);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card.no-image .project-fallback {
+      display: flex;
+    }
+
+    .project-card.no-image img {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fallback-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .fallback-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--projects-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .fallback-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(35, 67, 211, 0.15);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--projects-accent);
+      box-shadow: 0 8px 18px rgba(35, 67, 211, 0.10);
+    }
+
+    .fallback-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      max-width: 85%;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px;
+      flex: 1;
+    }
+
+    .project-category {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(35, 67, 211, 0.08);
+      color: var(--projects-accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      line-height: 1.22;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .project-description {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .project-tags span {
+      background: var(--projects-pill);
+      color: #475569;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #e9eef5;
+    }
+
+    .project-hint {
+      margin-top: 8px;
+      color: var(--projects-accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 36px 24px 8px;
+      color: var(--projects-muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .project-header-spacer {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-content {
+        padding: 18px;
+      }
+
+      .project-title {
+        font-size: 1.12rem;
+      }
+
+      .projects-hero {
+        padding: 3rem 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo project-header-spacer" aria-hidden="true">Madonna Shilpa</div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="projects-shell">
+    <section class="projects-hero">
+      <div class="container">
+        <h1>My Projects</h1>
+        <p>
+          A collection of web design, UI/UX, and graphic design projects. Click any card to open the project detail
+          page.
+        </p>
+      </div>
+    </section>
+
+    <section class="filters-wrap">
+      <div class="container">
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Web Design & Development</button>
+          <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+          <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <div class="container">
+        <div class="projects-grid">
+          <a href="axs-architects-detail.html" class="project-card-link" data-category="web">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/axs-architects-detail.jpg" alt="AXS Architects website preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">Web Project</span>
+                    <span class="fallback-icon">AXS</span>
+                  </div>
+                  <div class="fallback-title">AXS Architects</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Design & Development</span>
+                <h3 class="project-title">AXS Architects</h3>
+                <p class="project-description">
+                  A professional WordPress website created to present the studio, highlight architecture projects,
+                  and build a polished online presence.
+                </p>
+                <div class="project-tags">
+                  <span>WordPress</span>
+                  <span>Responsive Design</span>
+                  <span>Architecture</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="project-horizon-insurance.html" class="project-card-link" data-category="web">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/horizoninsurance.jpg" alt="Horizon Insurance website preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">Web Project</span>
+                    <span class="fallback-icon">HI</span>
+                  </div>
+                  <div class="fallback-title">Horizon Insurance</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Design & Development</span>
+                <h3 class="project-title">Horizon Insurance</h3>
+                <p class="project-description">
+                  An interactive insurance website designed to communicate services clearly, support lead generation,
+                  and offer a more modern client experience.
+                </p>
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="project-rose-wild-foundary.html" class="project-card-link" data-category="web branding">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/rosewild.jpg" alt="Rose Wild Foundry website preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">Brand + Web</span>
+                    <span class="fallback-icon">RW</span>
+                  </div>
+                  <div class="fallback-title">Rose Wild Foundry</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Design & Branding</span>
+                <h3 class="project-title">Rose Wild Foundry</h3>
+                <p class="project-description">
+                  A visually styled website direction for a creative brand with a refined aesthetic, curated layouts,
+                  and a strong storytelling approach.
+                </p>
+                <div class="project-tags">
+                  <span>Brand Direction</span>
+                  <span>Web Design</span>
+                  <span>Creative Portfolio</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="project-kfc-redesign.html" class="project-card-link" data-category="uiux">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/kfc redesign.jpg" alt="KFC redesign project preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">UI/UX Case Study</span>
+                    <span class="fallback-icon">KFC</span>
+                  </div>
+                  <div class="fallback-title">KFC Website Redesign</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">UI/UX Design</span>
+                <h3 class="project-title">KFC Website Redesign</h3>
+                <p class="project-description">
+                  A UX audit and redesign focused on improving the checkout flow with clearer steps, better payment
+                  flexibility, and a smoother ordering experience.
+                </p>
+                <div class="project-tags">
+                  <span>UX Audit</span>
+                  <span>Checkout Flow</span>
+                  <span>Prototype</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="project-budget-bites.html" class="project-card-link" data-category="uiux">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/budgetbites.jpg" alt="Budget Bites app preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">UI/UX Case Study</span>
+                    <span class="fallback-icon">BB</span>
+                  </div>
+                  <div class="fallback-title">Budget Bites</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">UI/UX Design</span>
+                <h3 class="project-title">Budget Bites</h3>
+                <p class="project-description">
+                  A mobile app concept that helps users plan affordable meals while balancing convenience, nutrition,
+                  and budget through a simple, user-friendly experience.
+                </p>
+                <div class="project-tags">
+                  <span>App Design</span>
+                  <span>User Flow</span>
+                  <span>Figma</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="project-twist-twiss.html" class="project-card-link" data-category="graphic branding">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/tizzy twist.jpeg" alt="Twist Twiss branding preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">Branding Project</span>
+                    <span class="fallback-icon">TT</span>
+                  </div>
+                  <div class="fallback-title">Twist Twiss Branding</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Graphic Design</span>
+                <h3 class="project-title">Twist Twiss Branding</h3>
+                <p class="project-description">
+                  A branding project featuring logo design, visual identity, and packaging direction created to build
+                  a bold and memorable brand presence.
+                </p>
+                <div class="project-tags">
+                  <span>Brand Identity</span>
+                  <span>Logo Design</span>
+                  <span>Packaging</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+        </div>
+
+        <p class="empty-state" id="emptyState">No projects found in this category yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 Madonna Shilpa. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card-link');
+    const emptyState = document.getElementById('emptyState');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+        let visibleCount = 0;
+
+        projectCards.forEach(card => {
+          const categories = card.dataset.category.split(' ');
+          const showCard = filter === 'all' || categories.includes(filter);
+
+          card.classList.toggle('hide', !showCard);
+
+          if (showCard) {
+            visibleCount += 1;
+          }
+        });
+
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      });
+    });
+
+    document.querySelectorAll('.project-image img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.closest('.project-card').classList.add('no-image');
+      });
+
+      if (img.complete && img.naturalWidth === 0) {
+        img.closest('.project-card').classList.add('no-image');
+      }
+    });
+  </script>
+</body>
+
+</html>
