@@ -447,6 +447,35 @@
             </article>
           </a>
 
+          <a href="rose-stone-project.html" class="project-card-link" data-category="web branding">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="assets/rose &stone.png" alt="Rose & Stone Boutique website preview">
+                <div class="project-fallback">
+                  <div class="fallback-top">
+                    <span class="fallback-label">Web Project</span>
+                    <span class="fallback-icon">RS</span>
+                  </div>
+                  <div class="fallback-title">Rose & Stone Boutique</div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="project-category">Web Design & Branding</span>
+                <h3 class="project-title">Rose & Stone Boutique</h3>
+                <p class="project-description">
+                  A Shopify boutique website created to showcase elegant fashion products with a premium,
+                  antique-inspired design.
+                </p>
+                <div class="project-tags">
+                  <span>Shopify</span>
+                  <span>E-commerce</span>
+                  <span>Brand Identity</span>
+                </div>
+                <p class="project-hint">Click card to view project →</p>
+              </div>
+            </article>
+          </a>
+
           <a href="project-kfc-redesign.html" class="project-card-link" data-category="uiux">
             <article class="project-card">
               <div class="project-image">
@@ -579,6 +608,56 @@
         emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       });
     });
+
+    function updateVisibleProjects(filter) {
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const categories = card.dataset.category.split(' ');
+        const showCard = filter === 'all' || categories.includes(filter);
+
+        card.classList.toggle('hide', !showCard);
+
+        if (showCard) {
+          visibleCount += 1;
+        }
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    function setActiveFilterButton(filter) {
+      filterButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    }
+
+    function applyFilter(filter) {
+      if (!filter) {
+        return;
+      }
+
+      setActiveFilterButton(filter);
+      updateVisibleProjects(filter);
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        applyFilter(filter);
+      });
+    });
+
+    const homepageHashMap = {
+      '#web-design-development': 'web',
+      '#ui-ux': 'uiux',
+      '#graphic-design': 'graphic',
+    };
+
+    const hashFilter = homepageHashMap[window.location.hash];
+    if (hashFilter) {
+      applyFilter(hashFilter);
+    }
 
     document.querySelectorAll('.project-image img').forEach(img => {
       img.addEventListener('error', () => {

@@ -301,7 +301,7 @@ h3 {
 }
 
 .project-page {
-  padding: 3rem 0 4rem;
+  padding: 1.5rem 0 2rem;
 }
 
 .project-detail-grid {
@@ -309,27 +309,74 @@ h3 {
 }
 
 .project-sidebar {
-  padding: 1.4rem;
+  padding: 1rem;
 }
 
 .project-sidebar ul {
   list-style: none;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.5rem;
   color: var(--muted);
 }
 
 .project-body {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.project-page .section {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.project-page .section h2 {
+  margin: 0 0 0.35rem;
+}
+
+.project-page .section p,
+.project-page .section ul {
+  margin: 0 0 0.5rem;
+}
+
+.project-page .section ul {
+  padding-left: 1.25rem;
+}
+
+.project-page .section li {
+  margin-bottom: 0.35rem;
+}
+
+.project-page .section .tag-list {
+  margin-top: 0.5rem;
 }
 
 .project-body section {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.4rem;
+  padding: 1rem;
+}
+
+.project-body section h2 {
+  margin-bottom: 0.75rem;
+}
+
+.project-body section p {
+  margin-bottom: 0.75rem;
+}
+
+.project-body section ul {
+  margin-top: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-body section li {
+  margin-bottom: 0.25rem;
+}
+
+.project-body section .tag-list {
+  margin-top: 0.5rem;
 }
 
 .contact-grid {
@@ -359,6 +406,24 @@ h3 {
   border-radius: 16px;
   padding: 0.9rem 1rem;
   font: inherit;
+}
+
+@media (max-width: 1100px) {
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .project-detail-grid,
+  .category-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero,
+  .page-hero,
+  .section {
+    padding: 4.2rem 0 2rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -401,6 +466,40 @@ h3 {
   .section-title-row {
     align-items: start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid,
+  .project-detail-grid,
+  .category-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .page-hero,
+  .section {
+    padding: 3.2rem 0 1.5rem;
+  }
+
+  .nav-links {
+    width: calc(100% - 2rem);
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .footer-row,
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    width: 100%;
   }
 }
 
